@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOEIC 800 Learning Site</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background-color: #005bac; padding: 15px; color: white; text-align: center; }
-        nav { background-color: #003f7d; padding: 10px; display: flex; justify-content: center; }
-        nav a {
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        nav a:hover { background-color: #005bac; border-radius: 5px; }
-        iframe {
-            width: 100%;
-            height: calc(100vh - 140px);
-            border: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <title>TOEIC 800 Learning Site</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #005bac; padding: 15px; color: white; text-align: center; }
+    nav { background-color: #003f7d; padding: 10px; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      margin: 5px 10px;
+      font-weight: bold;
+    }
+    nav a:hover { background-color: #005bac; border-radius: 5px; }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 140px);
+      border: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>TOEIC 800 數位學習網站</h1>
-    </header>
+  <header>
+    <h1>TOEIC 800 數位學習網站</h1>
+  </header>
 
-    <nav>
-        <a href="test1.html" target="contentFrame">字彙測驗</a>
-        <a href="test2.html" target="contentFrame">閱讀測驗</a>
-        <a href="test3.html" target="contentFrame">文法測驗</a>
-        <a href="about.html" target="contentFrame">製作團隊</a>
-    </nav>
+  <nav>
+    <a href="test1.html" target="contentFrame">字彙測驗</a>
+    <a href="test2.html" target="contentFrame">閱讀測驗</a>
+    <a href="test3.html" target="contentFrame">文法測驗</a>
+    <a href="material1.html" target="contentFrame">名詞子句教材</a>
+    <a href="about.html" target="contentFrame">製作團隊</a>
+  </nav>
 
-    <iframe name="contentFrame" src="about.html"></iframe>
+  <iframe name="contentFrame" src="about.html"></iframe>
 </body>
 </html>
