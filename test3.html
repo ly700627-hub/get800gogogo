@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>文法測驗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">首頁</a>
+    <a href="test1.html">字彙測驗</a>
+    <a href="test2.html">閱讀測驗</a>
+    <a href="test3.html">文法測驗</a>
+    <a href="about.html">製作團隊</a>
+</nav>
+
+<div class="container">
+    <h1>文法測驗總題庫（共 50 題）</h1>
+
+    <h2>第一大題：介係詞（10 題）</h2>
+    <div id="part1"></div>
+
+    <h2>第二大題：時態（20 題）</h2>
+    <div id="part2"></div>
+
+    <h2>第三大題：關係子句（20 題）</h2>
+    <div id="part3"></div>
+
+    <button onclick="checkAll()">提交所有答案</button>
+    <div id="result" class="score"></div>
+</div>
+
+<script>
+let part1=[
+    {q:"1. The meeting will start ___ 3 PM.",a:["in","on","at"],c:2},
+    {q:"2. He is good ___ playing tennis.",a:["at","for","with"],c:0},
+];
+
+let part2=[
+    {q:"1. She ____ to the store yesterday.",a:["go","went","gone"],c:1},
+    {q:"2. They ____ dinner when I arrived.",a:["are eating","were eating","eat"],c:1},
+];
+
+let part3=[
+    {q:"1. The man ___ is standing over there is my boss.",a:["which","who","whom"],c:1},
+    {q:"2. This is the book ___ I bought yesterday.",a:["what","who","that"],c:2},
+];
+
+function render(divId, list, offset){
+    let html="";
+    list.forEach((item,index)=>{
+        html+=`<div class="question">
+            <p>${index+1+offset}. ${item.q}</p>
+            ${item.a.map((opt,i)=>`<label><input type="radio" name="${divId}${index}" value="${i}">${opt}</label><br>`).join("")}
+        </div>`;
+    });
+    document.getElementById(divId).innerHTML=html;
+}
+
+render("part1", part1, 0);
+render("part2", part2, 10);
+render("part3", part3, 30);
+
+function checkAll(){
+    let score=0;
+    function check(list,divId){
+        list.forEach((item,index)=>{
+            let sel=document.querySelector(`input[name='${divId}${index}']:checked`);
+            if(sel && sel.value==item.c){ score++; }
+        });
+    }
+    check(part1,"part1");
+    check(part2,"part2");
+    check(part3,"part3");
+
+    document.getElementById("result").innerHTML="總得分："+score+" / 50";
+}
+</script>
+
+</body>
+</html>

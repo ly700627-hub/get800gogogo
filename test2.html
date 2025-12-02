@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>閱讀測驗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">首頁</a>
+    <a href="test1.html">字彙測驗</a>
+    <a href="test2.html">閱讀測驗</a>
+    <a href="test3.html">文法測驗</a>
+    <a href="about.html">製作團隊</a>
+</nav>
+
+<div class="container">
+    <h1>閱讀測驗（示例 5 題）</h1>
+
+    <p><b>閱讀文章：</b><br>
+       Mr. Wilson has worked at the company for ten years. He started as an assistant but gradually moved into a management role due to his excellent performance.
+    </p>
+
+    <div id="quiz"></div>
+    <button onclick="checkAnswers()">提交答案</button>
+    <div id="result" class="score"></div>
+</div>
+
+<script>
+let questions = [
+    { q:"1. How long has Mr. Wilson worked at the company?", a:["5 years","10 years","15 years"], c:1 },
+    { q:"2. What was his first position?", a:["assistant","manager","director"], c:0 },
+];
+
+let quizHTML="";
+questions.forEach((item,index)=>{
+    quizHTML+=`<div class='question'>
+        <p>${item.q}</p>
+        ${item.a.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}">${opt}</label><br>`).join("")}
+    </div>`;
+});
+document.getElementById("quiz").innerHTML=quizHTML;
+
+function checkAnswers(){
+    let score=0;
+    questions.forEach((item,index)=>{
+        let sel=document.querySelector(`input[name='q${index}']:checked`);
+        if(sel && sel.value==item.c){ score++; }
+    });
+    document.getElementById("result").innerHTML="得分："+score+" / "+questions.length;
+}
+</script>
+
+</body>
+</html>
