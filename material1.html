@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noun Clause 教材</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+    h2 { color: #003f7d; }
+    .example { background-color: #f0f8ff; padding: 10px; border-left: 4px solid #005bac; }
+    .quiz { margin-top: 30px; }
+    .quiz-question { margin-bottom: 15px; }
+    .quiz-question label { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>名詞子句 (Noun Clause) — 教材與練習</h1>
+
+  <section>
+    <h2>什麼是名詞子句？</h2>
+    <p>名詞子句是一種從屬子句 (dependent clause)，但它在句子裡可以像名詞 (noun / noun phrase) 一樣使用 — 可以當主詞、受詞、補語、同位語等等。 :contentReference[oaicite:1]{index=1}</p>
+  </section>
+
+  <section>
+    <h2>常見引導字 (連接詞)</h2>
+    <ul>
+      <li>that + S + V</li>
+      <li>if / whether + S + V</li>
+      <li>WH- 疑問詞 (what / when / where / why / who / how) + S + V</li>
+      <li>WH-ever (e.g. whatever, whoever) + S + V</li>
+    </ul>
+    <p>這些引導詞後面所接的子句，就是名詞子句。 :contentReference[oaicite:2]{index=2}</p>
+  </section>
+
+  <section>
+    <h2>用途／功能 (在句子中可以擔任什麼)</h2>
+    <ul>
+      <li>主詞 (Subject)：<span class="example">What you decide matters.</span></li>
+      <li>受詞 (Object)：<span class="example">I know that she is sincere.</span></li>
+      <li>補語 / 主詞補語 (Complement / Subject Complement)：<span class="example">The problem is that we have no time.</span></li>
+      <li>介係詞的受詞 / 同位語 (Object of preposition / Appositive)：例如 “the fact that …”</li>
+    </ul>
+    <p>因為名詞子句和名詞擁有相同語法地位，所以可以執行名詞能做的工作。 :contentReference[oaicite:3]{index=3}</p>
+  </section>
+
+  <section>
+    <h2>範例句子</h2>
+    <div class="example">She believes that honesty is the best policy.</div>
+    <div class="example">I don’t know where he went.</div>
+    <div class="example">Whether we succeed depends on our effort.</div>
+    <div class="example">What he said made everyone laugh.</div>
+  </section>
+
+  <section class="quiz">
+    <h2>練習題 (多選題)</h2>
+    <form id="quizForm">
+      <div class="quiz-question">
+        <p>1. Which of the following sentences contains a noun clause?</p>
+        <label><input type="radio" name="q1" value="A"> She walks to school every day.</label>
+        <label><input type="radio" name="q1" value="B"> I don’t know what he wants.</label>
+        <label><input type="radio" name="q1" value="C"> The dog is running.</label>
+        <label><input type="radio" name="q1" value="D"> He is happy.</label>
+      </div>
+      <div class="quiz-question">
+        <p>2. Identify the noun clause in this sentence: “I believe that she will pass the exam.”</p>
+        <label><input type="radio" name="q2" value="A"> I believe</label>
+        <label><input type="radio" name="q2" value="B"> that she will pass the exam</label>
+        <label><input type="radio" name="q2" value="C"> she will pass</label>
+        <label><input type="radio" name="q2" value="D"> pass the exam</label>
+      </div>
+      <div class="quiz-question">
+        <p>3. Which word can introduce a noun clause?</p>
+        <label><input type="radio" name="q3" value="A"> because</label>
+        <label><input type="radio" name="q3" value="B"> when</label>
+        <label><input type="radio" name="q3" value="C"> but</label>
+        <label><input type="radio" name="q3" value="D"> quickly</label>
+      </div>
+      <button type="button" onclick="checkQuiz()">提交答案</button>
+    </form>
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </section>
+
+  <script>
+    function checkQuiz() {
+      const answers = { q1: 'B', q2: 'B', q3: 'B' };
+      let score = 0;
+      for (let q in answers) {
+        const user = document.querySelector('input[name=\"' + q + '\"]:checked');
+        if (user && user.value === answers[q]) {
+          score++;
+        }
+      }
+      const total = Object.keys(answers).length;
+      document.getElementById('result').textContent = `你答對了 ${score} / ${total} 題`;
+    }
+  </script>
+</body>
+</html>
